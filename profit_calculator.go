@@ -25,7 +25,17 @@ func main() {
 
 	ratio := earningsBeforeTax / profit
 
-	fmt.Printf("EBT: %.2f\n", earningsBeforeTax)
+	// formattedEBT := fmt.Sprintf("EBT: %.2f\n", earningsBeforeTax)
+	// fmt.Print(formattedEBT)
+	// fmt.Println("Profit: ", profit)
+	// fmt.Println("Ratio: ", ratio)
+	outputText(earningsBeforeTax, profit, ratio)
+
+}
+
+func outputText(earningsBeforeTax float64, profit float64, ratio float64) {
+	formattedEBT := fmt.Sprintf("EBT: %.2f\n", earningsBeforeTax)
+	fmt.Print(formattedEBT)
 	fmt.Println("Profit: ", profit)
 	fmt.Println("Ratio: ", ratio)
 }
