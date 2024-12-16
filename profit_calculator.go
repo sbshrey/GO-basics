@@ -25,7 +25,7 @@ func main() {
 
 	ratio := earningsBeforeTax / profit
 
-	fmt.Printf("EBT: %v\n", earningsBeforeTax)
+	fmt.Printf("EBT: %.2f\n", earningsBeforeTax)
 	fmt.Println("Profit: ", profit)
 	fmt.Println("Ratio: ", ratio)
 }
