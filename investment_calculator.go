@@ -8,9 +8,17 @@ import (
 func main() {
 	// camelCase
 	const inflationRate = 2.5
-	var investmentAmount float64 = 1000
-	years := 10.0
-	expectedReturnRate := 5.5
+	var investmentAmount, years, expectedReturnRate float64 // must have a type if not given default value
+
+	// fetching data from terminal (scan)
+	fmt.Print("Investment Amount: ")
+	fmt.Scan(&investmentAmount) // need to pass pointer to work
+
+	fmt.Print("Expected Return Rate: ")
+	fmt.Scan(&expectedReturnRate)
+
+	fmt.Print("Years: ")
+	fmt.Scan(&years)
 
 	futureValue := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
 
