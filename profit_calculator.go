@@ -19,17 +19,31 @@ func main() {
 	fmt.Print("Tax Rate: ")
 	fmt.Scan(&taxRate)
 
-	earningsBeforeTax := revenue - expenses
+	// earningsBeforeTax := revenue - expenses
 
-	profit := earningsBeforeTax * (1 - taxRate/100)
+	// profit := earningsBeforeTax * (1 - taxRate/100)
 
-	ratio := earningsBeforeTax / profit
+	// ratio := earningsBeforeTax / profit
+
+	ebt, profit, ratio := calculateValues(revenue, expenses, taxRate)
 
 	// formattedEBT := fmt.Sprintf("EBT: %.2f\n", earningsBeforeTax)
 	// fmt.Print(formattedEBT)
 	// fmt.Println("Profit: ", profit)
 	// fmt.Println("Ratio: ", ratio)
-	outputText(earningsBeforeTax, profit, ratio)
+	outputText(ebt, profit, ratio)
+
+}
+
+func calculateValues(revenue float64, expenses float64, taxRate float64) (ebt float64, profit float64, ratio float64) {
+	ebt = revenue - expenses
+
+	profit = ebt * (1 - taxRate/100)
+
+	ratio = ebt / profit
+
+	// return ebt, profit, ratio
+	return
 
 }
 
