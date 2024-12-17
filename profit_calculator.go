@@ -42,8 +42,8 @@ func calculateValues(revenue float64, expenses float64, taxRate float64) (ebt fl
 
 	ratio = ebt / profit
 
-	// return ebt, profit, ratio
-	return
+	return ebt, profit, ratio // personally preferred to know what i am returning
+	// return
 
 }
 
