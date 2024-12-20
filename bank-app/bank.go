@@ -1,9 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
+const accountBalanceFile = "balance.txt"
+
+func writeBalanceToFile(balance float64) {
+	balanceText := fmt.Sprint(balance)
+	os.WriteFile(accountBalanceFile, []byte(balanceText), 0644)
+}
+
+func readBalanceFromFile() float64 {
+	data, _ := os.ReadFile(accountBalanceFile)
+	balanceText := string(data)
+	balance, _ := strconv.ParseFloat(balanceText, 64)
+	return balance
+}
 
 func main() {
-	var accountBalance = 1000.0
+	var accountBalance = readBalanceFromFile()
 
 	fmt.Println("Welcome to GO Bank!")
 	for {
@@ -34,6 +52,7 @@ func main() {
 			}
 			accountBalance += depositAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
+			writeBalanceToFile(accountBalance)
 		case 3:
 			var withdrawAmount float64
 			fmt.Print("Your Withdrawal: ")
@@ -48,6 +67,7 @@ func main() {
 
 			accountBalance -= withdrawAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
+			writeBalanceToFile(accountBalance)
 		case 4:
 			fmt.Println("Thanks for choosing GO Bank!")
 			// break // has a different meaning, only brings out of switch
