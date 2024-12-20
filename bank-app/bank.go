@@ -32,9 +32,9 @@ func main() {
 	accountBalance, err := readBalanceFromFile()
 
 	if err != nil {
-		fmt.Println("Error:", err)
-		fmt.Println("----------")
-		return
+		// fmt.Println("Error:", err)
+		// fmt.Println("----------")
+		panic(err)
 	}
 
 	fmt.Println("Welcome to GO Bank!")
