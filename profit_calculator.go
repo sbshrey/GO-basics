@@ -20,31 +20,38 @@ func writeTextToFile(optText string) {
 }
 
 func main() {
-	revenue := inputText("Revenue: ")
-	expenses := inputText("Expenses: ")
-	taxRate := inputText("Tax Rate: ")
+	revenue, errRevenue := inputText("Revenue: ")
+	if errRevenue != nil {
+		fmt.Println(errRevenue)
+		// return
+		panic(errRevenue)
+	}
+	expenses, errExpenses := inputText("Expenses: ")
+	if errExpenses != nil {
+		fmt.Println(errExpenses)
+		return
+	}
+	taxRate, errTaxRate := inputText("Tax Rate: ")
+	if errTaxRate != nil {
+		fmt.Println(errTaxRate)
+		return
+	}
 
 	ebt, profit, ratio := calculateValues(revenue, expenses, taxRate)
 	optText := outputText(ebt, profit, ratio)
 	writeTextToFile(optText)
 }
 
-func inputText(inputText string) float64 {
+func inputText(inputText string) (float64, error) {
 	var userInput float64
 	fmt.Print(inputText)
 	fmt.Scan(&userInput)
 
-	if userInput < 0.0 {
-		err := errors.New("no negative numbers")
-		panic(err)
+	if userInput <= 0 {
+		return 0, errors.New("input should be positive")
 	}
 
-	if userInput == 0.0 {
-		err := errors.New("no zero")
-		panic(err)
-	}
-
-	return userInput
+	return userInput, nil
 }
 
 func calculateValues(revenue float64, expenses float64, taxRate float64) (ebt float64, profit float64, ratio float64) {
