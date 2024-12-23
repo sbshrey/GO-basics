@@ -32,20 +32,14 @@ func main() {
 	accountBalance, err := readBalanceFromFile()
 
 	if err != nil {
-		// fmt.Println("Error:", err)
-		// fmt.Println("----------")
-		panic(err)
+		fmt.Println("Error:", err)
+		fmt.Println("----------")
+		// panic(err)
 	}
 
 	fmt.Println("Welcome to GO Bank!")
 	for {
-
-		fmt.Println("What do you want to do?")
-		fmt.Println("1. Check Balance")
-		fmt.Println("2. Deposit Money")
-		fmt.Println("3. Withdraw Money")
-		fmt.Println("4. Exit")
-
+		presentOptions()
 		var choice int
 		fmt.Print("Enter your choice: ")
 		fmt.Scan(&choice)
