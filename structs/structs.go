@@ -30,11 +30,11 @@ func main() {
 
 }
 
-func newUser(userFirstName, userLastName, userBirthdate string) *user {
+func newUser(firstName, lastName, birthdate string) *user {
 	return &user{
-		userFirstName,
-		userLastName,
-		userBirthdate,
+		firstName,
+		lastName,
+		birthdate,
 		time.Now(),
 	}
 }
