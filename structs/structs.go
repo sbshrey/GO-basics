@@ -17,6 +17,11 @@ func main() {
 
 	admin, err := user.NewAdmin("test@example.com", "test123")
 
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	appUser, err := user.New(userFirstName, userLastName, userBirthdate) // Keep a note if you applied the values in correct order
 
 	if err != nil {
