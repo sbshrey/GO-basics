@@ -20,12 +20,7 @@ func main() {
 
 	// var appUser user
 	// appUser = user{} // null value instance
-	appUser := user{
-		userFirstName,
-		userLastName,
-		userBirthdate,
-		time.Now(),
-	} // Keep a note if you applied the values in correct order
+	appUser := newUser(userFirstName, userLastName, userBirthdate) // Keep a note if you applied the values in correct order
 
 	// ... do something awesome with gathered data!
 
@@ -33,6 +28,15 @@ func main() {
 	appUser.clearUserName()
 	appUser.outputUserDetails()
 
+}
+
+func newUser(userFirstName, userLastName, userBirthdate string) *user {
+	return &user{
+		userFirstName,
+		userLastName,
+		userBirthdate,
+		time.Now(),
+	}
 }
 
 func (u *user) outputUserDetails() {
