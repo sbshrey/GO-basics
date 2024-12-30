@@ -49,17 +49,23 @@ func main() {
 		return
 	}
 
-	outputData(todo)
-	outputData(note)
-}
-
-func outputData(data outputtable) {
-	data.Display()
-	err := saveData(data)
+	err = outputData(todo)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+
+	err = outputData(note)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+}
+
+func outputData(data outputtable) error {
+	data.Display()
+	return saveData(data)
+
 }
 
 func saveData(data saver) error {
