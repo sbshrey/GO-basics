@@ -35,6 +35,9 @@ type outputtable interface {
 // }
 
 func main() {
+	printSomething(1)
+	printSomething(1.5)
+	printSomething("something")
 	title, content := getNoteDate()
 	note, err := note.New(title, content)
 	if err != nil {
@@ -60,6 +63,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+}
+
+func printSomething(value interface{}) {
+	fmt.Println(value)
 }
 
 func outputData(data outputtable) error {
