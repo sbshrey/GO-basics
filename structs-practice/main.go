@@ -20,13 +20,13 @@ type saver interface {
 	Save() error
 }
 
-type displayer interface {
-	Display()
-}
+// type displayer interface {
+// 	Display()
+// }
 
 type outputtable interface {
 	saver
-	displayer
+	Display()
 }
 
 // type outputtable interface {
