@@ -14,6 +14,9 @@ func main() {
 
 	// var appUser *user.User
 	// appUser = user{} // null value instance
+
+	admin, err := user.NewAdmin("test@example.com", "test123")
+
 	appUser, err := user.New(userFirstName, userLastName, userBirthdate) // Keep a note if you applied the values in correct order
 
 	if err != nil {
@@ -26,6 +29,10 @@ func main() {
 	appUser.OutputUserDetails()
 	appUser.ClearUserName()
 	appUser.OutputUserDetails()
+
+	admin.OutputUserDetails()
+	admin.ClearUserName()
+	admin.OutputUserDetails()
 
 }
 
