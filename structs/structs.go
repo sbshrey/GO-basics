@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"time"
 )
@@ -20,7 +21,12 @@ func main() {
 
 	// var appUser user
 	// appUser = user{} // null value instance
-	appUser := newUser(userFirstName, userLastName, userBirthdate) // Keep a note if you applied the values in correct order
+	appUser, err := newUser(userFirstName, userLastName, userBirthdate) // Keep a note if you applied the values in correct order
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	// ... do something awesome with gathered data!
 
@@ -30,13 +36,17 @@ func main() {
 
 }
 
-func newUser(firstName, lastName, birthdate string) *user {
+func newUser(firstName, lastName, birthdate string) (*user, error) {
+	if firstName == "" || lastName == "" || birthdate == "" {
+		return nil, errors.New("first name, last name, birthdate are required")
+	}
+
 	return &user{
 		firstName,
 		lastName,
 		birthdate,
 		time.Now(),
-	}
+	}, nil
 }
 
 func (u *user) outputUserDetails() {
@@ -51,6 +61,6 @@ func (u *user) clearUserName() {
 func getUserData(promptText string) string {
 	fmt.Print(promptText)
 	var value string
-	fmt.Scan(&value)
+	fmt.Scanln(&value)
 	return value
 }
