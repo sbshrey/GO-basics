@@ -14,7 +14,7 @@ func main() {
 
 	// var appUser *user.User
 	// appUser = user{} // null value instance
-	appUser, err := user.NewUser(userFirstName, userLastName, userBirthdate) // Keep a note if you applied the values in correct order
+	appUser, err := user.New(userFirstName, userLastName, userBirthdate) // Keep a note if you applied the values in correct order
 
 	if err != nil {
 		fmt.Println(err)
