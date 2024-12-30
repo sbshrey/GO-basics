@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wireframe for Scope of Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .header {
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .col {
+            flex: 1;
+            margin: 0 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .table th, .table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Dashboard for Scope of Services</h1>
+        </div>
+
+        <!-- Login for PC Section -->
+        <div class="card">
+            <h2>Login for Project's Customer (PC)</h2>
+            <div class="row">
+                <div class="col">
+                    <h3>Subsidiary Access</h3>
+                    <p>Dropdown to select subsidiary. Data shows aggregate wind/solar generation and individual plant performance.</p>
+                </div>
+                <div class="col">
+                    <h3>Historical Data</h3>
+                    <p>Date range picker for 15-minute, hourly, or daily data.</p>
+                    <a href="#" class="btn">Download CSV</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login for PRJ Section -->
+        <div class="card">
+            <h2>Login for Project (PRJ)</h2>
+            <div class="row">
+                <div class="col">
+                    <h3>Customer Dropdown</h3>
+                    <p>Select PC name and view aggregated generation data.</p>
+                </div>
+                <div class="col">
+                    <h3>Target vs Actual</h3>
+                    <p>Chart showing generation vs target for selected PC.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel Section -->
+        <div class="card">
+            <h2>Admin Panel</h2>
+            <p>Features:</p>
+            <ul>
+                <li>Create PRJ accounts</li>
+                <li>Create PC logins</li>
+                <li>Assign access to existing customers</li>
+            </ul>
+            <a href="#" class="btn">Manage Admin Panel</a>
+        </div>
+
+        <!-- Admin Calculations Panel Section -->
+        <div class="card">
+            <h2>Admin Calculations Panel</h2>
+            <p>Enter custom formulas for each PC's generation attribution:</p>
+            <form>
+                <label for="formula">Formula:</label><br>
+                <textarea id="formula" rows="4" style="width: 100%;"></textarea><br>
+                <button class="btn" type="submit">Save Formula</button>
+            </form>
+        </div>
+
+        <!-- Reports Section -->
+        <div class="card">
+            <h2>Reports</h2>
+            <p>Available Reports:</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Report Type</th>
+                        <th>Format</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daily Report</td>
+                        <td>CSV, XLS, PDF</td>
+                        <td><a href="#" class="btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Report</td>
+                        <td>CSV, XLS, PDF</td>
+                        <td><a href="#" class="btn">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
